@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:wght@300&display=swap" rel="stylesheet">
 <html>
     <head>
         <title>UNSW Sydney | One of the best universities in Australia</title>
@@ -12,12 +14,14 @@
             overflow: hidden;
             background-color: rgb(255, 255, 255);
             position: fixed;
-            top: 47px;
+            top: 0px;
             width: 100%;
             height: 100px;
             border: rgb(255, 255, 255);
             border-style: solid;
             border-width: 1px;
+            box-shadow: 5px 2px 5px 0 rgb(235, 235, 235);
+            z-index: 3;
         }
 
         .navbar a {
@@ -45,7 +49,7 @@
 
         .top-pane {
             background-color: rgb(255, 222, 74);
-            height: 7166.12px;
+            height: 1050px;
         }
 
         .navbar button {
@@ -70,17 +74,261 @@
             height: 35px;
         }
 
-        .background-shape {
+        .COVID-text {
+            background-color: #e2e7f6;
+            color: #333;
+            box-sizing: border-box;
+            margin: 96px 0px 32px;
+            height: 150px;
+            font-family: Arial,Roboto,sans-serif;
+            font-size: 28px;
+            text-align: center;
+            padding: 25px ;
+            font-weight: bolder;
+        }
+
+        .social {
+            top: 100px;
+            margin-top: 20px;
+            margin-left: 900px;
+            position: absolute;
+        }
+
+        .social img {
+            float: right;
+            height: 24px;
+            padding: 0px 15px;
+        }
+
+        #shape {
+            transform: scale(15);
+        }
+
+        .main-content {
+            display: flex;
+            position: absolute;
+            flex-direction: row;
+            justify-content: center;
+            padding: 15px 105.75px;
+            margin: 0px;
+            top: 0px;
+        }
+
+        .main-title h1 {
+            padding: 200px 0px 0px; 
+            font-size: 96px;
+            margin: 0px 0px 12px; 
+            font-weight: 700;
+            line-height: 7.2rem;
+            font-family: Arial;
+            width: 480px;
+            color: #333;
+        }
+
+        .main-title p {
+            margin: 0px 0px 64px;
+            font-size: 22px;
+            font-family: Arial;
+            color: #333;
+            line-height: 30px;
+        }
+        .main-pic {
+            padding-top: 300px;
+            padding-left: 100px;
+            transform: scale(0.8);
+        }
+
+        .register-button {
+            top: 0px;
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
+            font-family: monospace;
+            font-weight: 200;
+            margin: 0px 0px 32px;
+            width: fit-content;
+            padding: 12px 18px;
+        }
+
+        .register-button:hover {background-color: rgb(242, 241, 255);}
+
+        .pane2 {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .pane2-1 {
+            display: flex;
+            flex-direction: column;
+            padding: 0px 16px;
+            width: 45%;
+        }
+
+        .quote {
+            font-size: 48px;
+            font-family: Roboto;
+            text-align: center;
+        }
+
+        .Robert-pic {
             font-size: 100%;
             line-height: 1.25em;
             color: #333;
+            text-align: center;
             box-sizing: border-box;
-            position: absolute;
-            z-index: -1;
-            fill: #fff;
-            top: -88.3505px;
-            left: -152px;
-            height: 1114.01px;
+        }
+
+        .RobertMakepeace_pic {
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 80px;
+            width: 80px;
+            padding: 10px 0px;
+        }
+
+        .designation {
+            display: flex;
+            flex-direction: row;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: Arial;
+        }
+
+        .pane2-2 {
+            padding: 0 20px;
+        }
+
+        .pane2-2 h2 {
+            font-size: 48px;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .enquire-apply {
+            display: flex;
+            flex-direction: row;
+            text-decoration: none;
+            margin-left: 100px;
+        }
+
+        #enquire {
+            text-decoration: none;
+            font-family: Roboto;
+            font-size: 20px;
+            color: #1A1E2B;
+            font-weight: 700;
+            background-color: rgb(255, 222, 74);
+            padding: 33.6px 56px;
+            margin: 16px 16px 0px 0px;
+        }
+
+        #enquire:hover {
+            background-color: rgb(194, 169, 56);
+        }
+
+        #apply {
+            text-decoration: none;
+            font-family: Roboto;
+            font-size: 20px;
+            color: white;
+            font-weight: 700;
+            background-color: rgb(0, 0, 0);
+            padding: 33.6px 56px;
+            margin: 16px 0px 0px;
+        }
+
+        #apply:hover {
+            background-color: rgb(77, 77, 77);
+        }
+
+        .latest-stories-content {
+            display: grid;
+            grid-template-columns: 50rem 1rem;
+            grid-template-areas: 
+                "main main side1"
+                "main main side2"
+                "main main side3";
+            grid-gap: 20px 30px;
+            margin-right: 50px;
+        }
+        .main-story {
+            grid-area: main;
+            cursor: pointer;
+        }
+        
+        .main-story img {
+            margin: 0px 0px 24px;
+            width: 95%;
+        }
+
+        .story-title {
+            font-size: 32px;
+            font-family: Arial;
+            margin: 0px 0px 6px;
+        }
+
+        .story-title:hover {
+            text-decoration: underline;
+            text-decoration-color: rgb(255, 222, 74);
+        }
+
+        .main-story p {
+            font-size: 16px;
+            font-family: Roboto;
+            margin: 0px 0px 16px;
+            font-weight: 500;
+            line-height: 30px;
+        }
+
+        .story-date {
+            font-size: 14px;
+            font-family: Arial;
+        }
+
+        .side1-story {
+            grid-area: side1;
+        }
+
+        .side2-story {
+            grid-area: side2;
+        }
+
+        .side3-story {
+            grid-area: side3;
+        }
+
+        .tenmin-genius {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .video-content {
+            font-size: 16px;
+            font-family: Roboto;
+            padding: 60px 0px;
+        }
+
+        .hfg-button {
+            top: 0px;
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
+            font-family: 'Roboto Mono';
+            font-weight: 400;
+            margin: 0px 0px 32px;
+            font-size: 16px;
+            width: fit-content;
+            height: fit-content;
+            padding: 3px 18px;
+        }
+
+        .hfg-button:hover {
+            background-color: rgb(223, 223, 223);
+        }
+
+        .experience-pane {
+            display: grid;      
         }
     </style>
     <body>
@@ -93,11 +341,101 @@
                 <a href="#">Research</a>
                 <a href="#">Study</a>
             </div>
+            <svg height="1110" width="1317.5">
+                <polygon id="shape" points="0 0 0 48.533488 39.4213208 60 57.4153242 35.7397558 32.0559823 0" style="fill: white;"></polygon>
+            </svg>
+            <div class="social">
+                <img src="Images/youtube_black_editted.png">
+                <img src="Images/tiktok_logo_black_editted.png">
+                <img src="Images/instagram_black.png">
+                <img src="Images/facebook-editted.png">
+                <img src="Images/twitter_PNG1.png">
+                <img src="Images/linkedin-black-icon-5.jpg" style="height: 30px;">
+                <h3 style="font-family: Roboto; float: right; font-weight: bold; margin: 5px;">Follow</h3>
+            </div>
+            <div class="main-content">
+                <div class="main-title">
+                    <h1>Info Week - on campus and online</h1>
+                    <p>
+                        Info Week features more than 130 sessions to help you choose the degree that is right for you. Get personalised advice from our world-leading experts and explore the vibrant UNSW lifestyle before finalising your UAC preference. | 17 - 21 January
+                    </p>
+                    <h3 class="register-button">Register Now &#10145</h3>
+                </div>
+                <div class="main-pic">
+                    <img src="Images/Main-pic.jpg"></img>
+                </div>
+            </div>
         </div>
-        <svg class="background-shape" id="background-shape-1" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="top: -88.3505px; left: -152px; height: 1114.01px;">
-            <g>
-                <polygon points="0 0 0 48.533488 39.4213208 60 57.4153242 35.7397558 32.0559823 0"></polygon>
-            </g>
-        </svg>
+        <div class="COVID-text">
+            <h3>Visit our <a href="#">COVID-19 website</a> for the latest on UNSW's response to COVID-19.</h3>
+        </div>
+        <div class="pane2">
+            <div class="pane2-1">
+                <h1 class="quote">"UNSW has a diverse and inclusive culture that ​fosters learning and development."</h1>
+                <div class="Robert-pic">
+                    <img class="RobertMakepeace_pic" src="Images/RobertMakepeace_pic.jpeg">
+                </div>
+                <div class="designation">
+                    <h3 style="width: 200px;"><strong>Robert Makepeace</strong></h3>    
+                    <h3 style="font-weight: 300;">Engineering Officer</h3>
+                </div>
+            </div>
+            <div class="pane2-2">
+                <h2>This is where your future starts</h2>
+                <div class="enquire-apply">
+                    <a id="enquire" href="#">&#9993; Enquire now</a>
+                    <a id="apply" href="#">&#128196; Apply now</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="latest-stories">
+            <h2 style="font-size: 48px; font-family: Arial; ">Latest Stories</h2>
+            <div class="latest-stories-content">
+                <div class="main-story">
+                    <img src="Images/Drowning-pic-edit.jpg">
+                    <h3 class="story-title">The eight deadly days of Christmas: how to stay safe from drowning in Australia this summer</h3>
+                    <p>Australians are entering our most dangerous time of year for fatal drownings. So what can you do to keep yourself and loved ones safer this summer?</p>
+                    <date class="story-date">20 Dec 2021</date>
+                </div>
+                <div class="side1-story">
+                    <img src="Images/unsw-staff.jpeg" width="390px" height="220">
+                    <h3 class="story-title">UNSW's international students arrive in Australia</h3>
+                    <date class="story-date">06 Dec 2021</date>
+                    <hr>
+                </div>
+                <div class="side2-story">
+                    <h3 class="story-title">It's summer: time to take a hike and contribute to science</h3>
+                    <date class="story-date">17 Dec 2021</date>
+                    <hr>
+                </div>
+                <div class="side3-story">
+                    <h3 class="story-title">UNSW enters world top 50 universities</h3>
+                    <date class="story-date">21 Dec 2021</date>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <hr>
+        </div>
+        <div class="tenmin-genius">
+            <div style="padding: 100px;">
+                <iframe width="430" height="240" src="https://www.youtube.com/embed/PcDkZsiJAK4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-content">
+                <h2 style="font-size: 48px; font-family: Arial; width: 360px; text-align: left;">Will you be a 10 Minute Genius?</h2>
+                <p style="margin-bottom: 32px; width: 450px; line-height: 30px; font-weight: 600; font-family: Roboto;">
+                    Hear from UNSW's thinkers, dreamers and envelope pushers. In under 10 minutes, learn about the age of stars, the Indigenous Voice to Parliament, how to detect mutant algorithms, and more.
+                </p>
+                <h3 class="hfg-button">Hear from a 'genius'  &#10145</h3>
+            </div>
+        </div>
+        <div class="COVID-text" style="height: 190px;">
+            <h3><a href="#" style="color: #3F61C4;">UNSW 2025 Strategy Progress Snapshot</a> – learn how UNSW is achieving its goals for 2025 and leading in academic excellence, innovation and social impact.</h3>
+        </div>
+        <div class="experience-pane">
+
+        </div>
     </body>
 </html>
