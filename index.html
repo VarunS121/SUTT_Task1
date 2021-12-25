@@ -2,6 +2,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html>
     <head>
         <title>UNSW Sydney | One of the best universities in Australia</title>
@@ -10,6 +11,67 @@
     <style>
         body {margin:0;}
 
+        .overlay {
+        /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+            height: 100%;
+            width: 0;
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            background-color: rgb(255, 255, 255); /* Black fallback color */
+            overflow-x: hidden; /* Disable horizontal scroll */
+            transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+        }
+
+        /* Position the content inside the overlay */
+        .overlay-content {
+            position: relative;
+            top: 15%; /* 25% from the top */
+            width: 100%; /* 100% width */
+            text-align: left; /* Centered text/links */
+            margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+        }
+
+        /* The navigation links inside the overlay */
+        .top-overlay a {
+            padding: 24px 60px 16px 20px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #000000;
+            display: block; 
+            font-family: Roboto;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .bottom-overlay a {
+            background-color: #e2e7f6;
+            padding: 16px 60px 16px 20px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #000000;
+            display: block; 
+            font-family: 'Roboto Mono';
+            font-size: 14px;
+        }
+
+        .overlay .closebtn {
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            font-size: 60px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .overlay a {font-size: 20px}
+            .overlay .closebtn {
+                font-size: 40px;
+                top: 15px;
+                right: 35px;
+            }
+        }
+        
         .navbar {
             overflow: hidden;
             background-color: rgb(255, 255, 255);
@@ -37,8 +99,7 @@
             height: 100px;
         }
 
-        .navbar a:hover {
-            background: rgb(242, 241, 255);
+        .navbar a:hover {background: rgb(242, 241, 255);
         }
 
         #main-logo {
@@ -49,7 +110,7 @@
 
         .top-pane {
             background-color: rgb(255, 222, 74);
-            height: 1050px;
+            height: auto;
         }
 
         .navbar button {
@@ -74,14 +135,27 @@
             height: 35px;
         }
 
+        .container {
+            display: none;
+            cursor: pointer;
+            margin: auto;
+            bottom: 10px;
+        }
+
+        .bar1, .bar2, .bar3 {
+            width: 35px;
+            height: 5px;
+            background-color: #333;
+            margin: 6px 0;
+        }
+
         .COVID-text {
             background-color: #e2e7f6;
             color: #333;
-            box-sizing: border-box;
             margin: 96px 0px 32px;
             height: 150px;
-            font-family: Arial,Roboto,sans-serif;
-            font-size: 28px;
+            font-family: Arial;
+            font-size: 3vw;
             text-align: center;
             padding: 25px ;
             font-weight: bolder;
@@ -90,29 +164,30 @@
         .social {
             top: 100px;
             margin-top: 20px;
-            margin-left: 900px;
+            margin-left: 65vw;
             position: absolute;
+            float: right;
+            display: flex;
+            flex-direction: row;
         }
 
         .social img {
-            float: right;
             height: 24px;
             padding: 0px 15px;
         }
 
-        #shape {
-            transform: scale(15);
-        }
+        #shape {transform: scale(15);}
 
         .main-content {
-            display: flex;
             position: absolute;
-            flex-direction: row;
-            justify-content: center;
-            padding: 15px 105.75px;
             margin: 0px;
             top: 0px;
+            display: flex;
+            flex-direction: row;
+            padding: 0 8.3%;
         }
+
+        .main-title {flex-shrink: 1;}
 
         .main-title h1 {
             padding: 200px 0px 0px; 
@@ -127,15 +202,16 @@
 
         .main-title p {
             margin: 0px 0px 64px;
-            font-size: 22px;
+            font-size: 1.8vw;
             font-family: Arial;
             color: #333;
             line-height: 30px;
         }
         .main-pic {
             padding-top: 300px;
-            padding-left: 100px;
+            padding-left: 11vm;
             transform: scale(0.8);
+            flex-shrink: 3;
         }
 
         .register-button {
@@ -157,11 +233,17 @@
             flex-direction: row;
         }
 
+        @media only screen and (max-width: 985px){
+            .pane2 {
+                flex-direction: column;
+            }
+        }
+
         .pane2-1 {
             display: flex;
             flex-direction: column;
             padding: 0px 16px;
-            width: 45%;
+            width: 100%;
         }
 
         .quote {
@@ -209,7 +291,25 @@
             display: flex;
             flex-direction: row;
             text-decoration: none;
-            margin-left: 100px;
+            margin-left: 4vw;
+            justify-content: center;
+        }
+
+        @media only screen and (max-width: 1070px) {
+            .enquire-apply {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #enquire {
+                width: auto;
+                margin: 1rem 1rem 0 0;
+            }
+
+            #apply {
+                width: auto;
+                margin: 1rem 1rem 0 0;
+            }
         }
 
         #enquire {
@@ -221,6 +321,8 @@
             background-color: rgb(255, 222, 74);
             padding: 33.6px 56px;
             margin: 16px 16px 0px 0px;
+            min-width: max-content;
+            max-height: 30px;
         }
 
         #enquire:hover {
@@ -236,6 +338,8 @@
             background-color: rgb(0, 0, 0);
             padding: 33.6px 56px;
             margin: 16px 0px 0px;
+            min-width: max-content;
+            max-height: 30px;
         }
 
         #apply:hover {
@@ -244,7 +348,7 @@
 
         .latest-stories-content {
             display: grid;
-            grid-template-columns: 50rem 1rem;
+            grid-template-columns: 3fr 1fr 1fr;
             grid-template-areas: 
                 "main main side1"
                 "main main side2"
@@ -286,17 +390,11 @@
             font-family: Arial;
         }
 
-        .side1-story {
-            grid-area: side1;
-        }
+        .side1-story {grid-area: side1;}
 
-        .side2-story {
-            grid-area: side2;
-        }
+        .side2-story {grid-area: side2;}
 
-        .side3-story {
-            grid-area: side3;
-        }
+        .side3-story {grid-area: side3;}
 
         .tenmin-genius {
             display: flex;
@@ -331,6 +429,7 @@
             display: grid;
             grid-template-columns: 1.5fr 1.5fr 1fr;
             margin-right: 50px;
+            overflow-x: scroll;
         }
 
         .box-title {
@@ -483,6 +582,7 @@
             margin: 1rem 1rem 0 0;
             justify-content: center;
             align-content: center;
+            max-height: 30px;
         }
 
         #find:hover {
@@ -618,10 +718,171 @@
             text-decoration-color: rgb(0, 0, 0);
             cursor: pointer;
         }
+
+        @media only screen and (max-width: 1190px) {
+            .social-sitemap {
+                flex-direction: column;
+            }
+
+            .sitemap {
+                margin-top: 10px;
+            }
+        }
+
+        @media only screen and (max-width: 960px) {
+            body {margin: 0;}
+            
+            .top-pane {height: 95rem;}
+            
+            .navbar {
+                position: absolute;
+                height: 5rem;
+            }
+            
+            .navbar a {display: none;}
+
+            .container {
+                display: inline-block;
+            }
+            
+            #main-logo {
+                transform: scale(0.7);
+                margin-left: 17rem;
+            }
+
+            .social {
+                flex-direction: column;
+                float: right;
+                margin: 0;
+                right: 5px;
+            }
+
+            .social img {
+                margin: 5px 0px;
+                width: 26px;
+            }
+            
+            #shape {transform: scale(10);}
+            
+            .main-content {flex-direction: column-reverse;}
+            
+            .main-pic {
+                font-size: 100%;
+                line-height: 1.25em;
+                text-align: center;
+                max-width: 100%;
+                height: auto;
+                width: 95%;
+                padding: 13rem 0px 0px;
+                transform: scale(1.1);
+            }
+
+            .main-title {
+                padding: 0px 0px;
+                margin-top: 2.4rem;
+                margin-left: 5rem;
+            }
+
+            .main-title h1 {
+                padding-top: 0;
+                font-size: 5rem;
+            }
+
+            .enquire-apply {
+                flex-direction: row;
+                text-align: center;
+            }
+
+            .tenmin-genius {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .video-content {
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 80%;
+            }
+
+            .video-content h2 {
+                margin: 0;
+                padding: 0;
+                width: 1100px;
+                max-width: none;
+            }
+            
+            .dates-info {
+                grid-template-columns: none;
+                grid-template-rows: 1fr 1fr 1fr;
+                grid-row-gap: 1rem;
+                margin-left: 50px;
+            }
+
+            .dates-entry {
+                justify-content: space-evenly;
+            }
+
+            .dates-date {
+                width: 8rem;
+                margin-left: 10px;
+            }
+            
+        }
     </style>
     <body>
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="text-decoration: none; color:black">&times;</a>
+            <div class="overlay-content">
+                <div class="top-overlay">
+                    <span style="font-size: 20px; font-family: Arial; padding: 16px 60px 30px 20px; font-weight: 700;">Home</span>
+                    <a href="#">
+                        <span>Study</span>
+                        <img src="Images/right-arrow-head.png" style="float: right; width: 20.8px;">
+                    </a>
+                    <a href="#">
+                        <span>Research</span>
+                        <img src="Images/right-arrow-head.png" style="float: right; width: 20.8px;">
+                    </a>
+                    <a href="#">
+                        <span>Engage with Us</span>
+                        <img src="Images/right-arrow-head.png" style="float: right; width: 20.8px;">
+                    </a>
+                    <a href="#">
+                        <span>About Us</span>
+                        <img src="Images/right-arrow-head.png" style="float: right; width: 20.8px;">
+                    </a>
+                </div>
+                <div class="bottom-overlay">
+                    <a href="#">
+                        <span>News</span>
+                    </a>
+                    <a href="#">
+                        <span>Events</span>
+                    </a>
+                    <a href="#">
+                        <span>myUNSW</span>
+                    </a>
+                    <a href="#">
+                        <span>Alumni & Giving</span>
+                    </a>
+                    <a href="#">
+                        <span>&#9993; Contact Us</span>
+                    </a>
+                </div>
+            </div>
+  
+        </div>
         <div class="top-pane">
             <div class="navbar">
+                <div class="container" onclick="openNav()">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
                 <img id="main-logo" src="Images/unsw_0.png"> 
                 <button type="button"><img id="search-img" src="Images/download (1).png"></button>
                 <a href="#">About Us</a>
@@ -629,17 +890,17 @@
                 <a href="#">Research</a>
                 <a href="#">Study</a>
             </div>
-            <svg height="1110" width="1317.5">
+            <svg height="1110" width="100%">
                 <polygon id="shape" points="0 0 0 48.533488 39.4213208 60 57.4153242 35.7397558 32.0559823 0" style="fill: white;"></polygon>
             </svg>
             <div class="social">
-                <img src="Images/youtube_black_editted.png">
-                <img src="Images/tiktok_logo_black_editted.png">
-                <img src="Images/instagram_black.png">
-                <img src="Images/facebook-editted.png">
-                <img src="Images/twitter_PNG1.png">
-                <img src="Images/linkedin-black-icon-5.jpg" style="height: 30px;">
                 <h3 style="font-family: Roboto; float: right; font-weight: bold; margin: 5px;">Follow</h3>
+                <img src="Images/linkedin-black-icon-5.jpg">
+                <img src="Images/twitter_PNG1.png">
+                <img src="Images/facebook-editted.png">
+                <img src="Images/instagram_black.png">
+                <img src="Images/tiktok_logo_black_editted.png">
+                <img src="Images/youtube_black_editted.png" style="height: 30px;">
             </div>
             <div class="main-content">
                 <div class="main-title">
@@ -712,8 +973,8 @@
                 <iframe width="430" height="240" src="https://www.youtube.com/embed/PcDkZsiJAK4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="video-content">
-                <h2 style="font-size: 48px; font-family: Arial; width: 360px; text-align: left;">Will you be a 10 Minute Genius?</h2>
-                <p style="margin-bottom: 32px; width: 450px; line-height: 30px; font-weight: 600; font-family: Roboto;">
+                <h2 style="font-size: 48px; font-family: Arial; width: 30vw; text-align: left;">Will you be a 10 Minute Genius?</h2>
+                <p style="margin-bottom: 32px; width: 40vw; line-height: 30px; font-weight: 600; font-family: Roboto;">
                     Hear from UNSW's thinkers, dreamers and envelope pushers. In under 10 minutes, learn about the age of stars, the Indigenous Voice to Parliament, how to detect mutant algorithms, and more.
                 </p>
                 <h3 class="hfg-button">Hear from a 'genius'  &#8594</h3>
@@ -938,7 +1199,7 @@
                 </div>
                 <div class="social-sitemap">
                     <div class="follow-us">
-                        <h2 style="font-size: 22px; font-family: Arial; margin: 0px 16px 0px 0px;">Follow Us</h2>
+                        <h2 style="font-size: 22px; font-family: Arial; margin: 0px 16px 0px 0px; font-weight: 300;">Follow Us</h2>
                         <img src="Images/linkedin-black-icon-5.jpg">
                         <img src="Images/twitter_PNG1.png">
                         <img src="Images/facebook-editted.png">
@@ -959,27 +1220,30 @@
                 </div>
             </div>
         </footer>
+        <script>
+            /* Open when someone clicks on the span element */
+            function openNav() {
+                document.getElementById("myNav").style.width = "100%";
+                document.getElementsByClassName("container").style.display = "none";
+            }
+
+            /* Close when someone clicks on the "x" symbol inside the overlay */
+            function closeNav() {
+                document.getElementById("myNav").style.width = "0%";
+            }
+        </script>
     </body>
 </html>
 
 
-
-
-<!--
-    color: #000;
-    font-family: RobotoMono,Arial,sans-serif;
-    font-weight: normal;
-    text-transform: none;
-    font-size: 1rem;
-    line-height: 1.3125rem;
-    letter-spacing: normal;
-    box-sizing: border-box;
-    position: relative;
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
+text-align: left;
+box-sizing: border-box;
+font-family: Clancy,Arial,sans-serif;
+font-weight: 700;
+text-transform: none;
+letter-spacing: normal;
+font-size: 2.625rem;
+line-height: 3.125rem;
+color: #000;
+margin-bottom: .625rem;
+margin-top: 6.5rem;
